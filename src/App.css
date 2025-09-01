@@ -1,4 +1,3 @@
-/* Reset y configuración base */
 * {
   margin: 0;
   padding: 0;
@@ -11,22 +10,16 @@ body {
   color: #333;
 }
 
-/* Contenedor principal de la aplicación */
 .app-container {
   min-height: 100vh;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
-  
-  /* Configuración del fondo */
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-  
-  /* Transición suave al cargar */
+  background-attachment: scroll;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
 }
@@ -35,7 +28,6 @@ body {
   opacity: 1;
 }
 
-/* Overlay para mejorar contraste y legibilidad */
 .background-overlay {
   position: absolute;
   top: 0;
@@ -44,37 +36,14 @@ body {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(139, 69, 19, 0.2) 30%,
-    rgba(0, 0, 0, 0.25) 70%,
-    rgba(101, 67, 33, 0.3) 100%
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(139, 69, 19, 0.15) 30%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(101, 67, 33, 0.25) 100%
   );
   z-index: 1;
-  animation: overlayShift 8s ease-in-out infinite alternate;
 }
 
-@keyframes overlayShift {
-  0% {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(139, 69, 19, 0.2) 30%,
-      rgba(0, 0, 0, 0.25) 70%,
-      rgba(101, 67, 33, 0.3) 100%
-    );
-  }
-  100% {
-    background: linear-gradient(
-      135deg,
-      rgba(101, 67, 33, 0.25) 0%,
-      rgba(0, 0, 0, 0.3) 30%,
-      rgba(139, 69, 19, 0.2) 70%,
-      rgba(0, 0, 0, 0.35) 100%
-    );
-  }
-}
-
-/* Contenido principal */
 .main-content {
   position: relative;
   z-index: 2;
@@ -83,15 +52,11 @@ body {
   justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
-  padding: 4rem 2rem 2rem;
+  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem) 2rem;
   text-align: center;
+  width: 100%;
 }
 
-/* Header de la aplicación - ELIMINAR */
-
-/* Sección de contenido - ELIMINAR */
-
-/* Card principal */
 .card {
   background: linear-gradient(
     145deg,
@@ -109,7 +74,7 @@ body {
     inset 0 -1px 0 rgba(101, 67, 33, 0.2);
   border: 1px solid rgba(205, 170, 125, 0.3);
   width: 100%;
-  max-width: 380px;
+  max-width: 420px;
   transform: translateY(0);
   transition: all 0.4s ease;
   position: relative;
@@ -146,141 +111,234 @@ body {
 }
 
 .card h2 {
-  font-size: 1.6rem;
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
   color: #f5f1eb;
   margin-bottom: 1rem;
   font-weight: 600;
   text-shadow: 1px 1px 2px rgba(101, 67, 33, 0.5);
+  text-align: center;
 }
 
 .card p {
   color: #f0ebe4;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: clamp(0.9rem, 2.2vw, 1rem);
+  line-height: 1.7;
   margin-bottom: 1.8rem;
   text-shadow: 1px 1px 2px rgba(101, 67, 33, 0.3);
+  text-align: justify;
+  word-spacing: 0.1em;
 }
 
-/* Botón CTA profesional */
-.cta-button {
-  background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
-  color: #2c1810;
+.whatsapp-button {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
   border: none;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
+  padding: clamp(0.7rem, 2vw, 0.9rem) clamp(1.2rem, 4vw, 1.8rem);
+  font-size: clamp(0.85rem, 2.2vw, 1rem);
   font-weight: 700;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.5px;
   box-shadow: 
-    0 6px 20px rgba(212, 175, 55, 0.4),
+    0 6px 20px rgba(37, 211, 102, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(184, 148, 31, 0.3);
+  border: 1px solid rgba(18, 140, 126, 0.3);
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-/* Enlace del botón */
+.whatsapp-icon {
+  flex-shrink: 0;
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 35px rgba(37, 211, 102, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #2ee76f 0%, #25d366 100%);
+}
+
+.whatsapp-button:active {
+  transform: translateY(-1px);
+}
+
 a {
   text-decoration: none;
   display: inline-block;
 }
 
-.cta-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 12px 35px rgba(212, 175, 55, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #e6c757 0%, #d4af37 100%);
-}
-
-.cta-button:hover::before {
-  left: 100%;
-}
-
-.cta-button:active {
-  transform: translateY(-1px);
-}
-
-/* Footer */
 .app-footer {
-  margin-top: 3rem;
-  padding: 1rem;
+  margin-top: clamp(2rem, 5vw, 3rem);
+  padding: 1.5rem;
+  max-width: 600px;
+  width: 100%;
 }
 
 .app-footer p {
-  color: #f0ebe4;
-  font-size: 0.9rem;
-  opacity: 0.9;
-  text-shadow: 1px 1px 3px rgba(101, 67, 33, 0.6);
+  color: #ffffff;
+  font-size: clamp(1.4rem, 5vw, 2.5rem); /* se ajusta entre 1.4rem y 2.5rem según pantalla */
+  opacity: 1;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
   font-style: italic;
-  font-weight: 300;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: 0.8px;
+  white-space: nowrap; /* evita que se rompa en varias líneas */
+  overflow: hidden;    /* oculta el exceso si no cabe */
+  text-overflow: ellipsis; /* agrega "..." si se corta el texto */
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+
+
+/* Desktop - PANTALLA COMPLETA TOTAL */
+@media (min-width: 769px) {
   .app-container {
-    position: relative;
+    height: 100vh;
+    width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
   
   .main-content {
-    padding: 3rem 1.5rem 2rem;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    padding: 0;
+    margin: 0;
   }
   
   .card {
-    padding: 1.6rem 1.4rem;
-    border-radius: 14px;
-    max-width: 340px;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    max-width: 400px;
+    width: 35%;
+    min-width: 350px;
+    padding: 2.5rem 2rem;
+    margin: 0;
   }
   
-  .card h2 {
-    font-size: 1.4rem;
+  .app-footer {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    max-width: 300px;
   }
   
-  .card p {
+  .app-footer p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    animation: typewriterAppear 4s ease-in-out 2s forwards;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    font-style: italic;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem) 2rem;
+  }
+  
+  .card {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  
+  .app-footer {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    max-width: none;
+  }
+  
+  .app-footer p {
     font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .cta-button {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.3;
   }
 }
 
 @media (max-width: 480px) {
-  .main-content {
-    padding: 2rem 1rem;
+  .app-container {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
   }
   
   .card {
-    padding: 1.4rem 1.2rem;
-    max-width: 320px;
+    padding: clamp(1.2rem, 4vw, 1.6rem);
+    max-width: 90%;
   }
   
-  .card h2 {
-    font-size: 1.3rem;
-  }
-  
-  .card p {
-    font-size: 0.85rem;
+  .main-content {
+    padding: clamp(1.5rem, 5vw, 3rem) 1rem 2rem;
   }
 }
 
-/* Animaciones mejoradas para dispositivos que las soportan */
+@media (min-width: 481px) and (max-width: 768px) {
+  .card {
+    max-width: 450px;
+    padding: 2.2rem 2rem;
+  }
+  
+  .app-container {
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    max-width: 480px;
+    padding: 2.5rem 2.2rem;
+  }
+  
+  .app-container {
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .card {
     animation: fadeInUp 1s ease-out 0.3s both;
@@ -288,17 +346,6 @@ a {
   
   .app-footer {
     animation: fadeInUp 1s ease-out 0.5s both;
-  }
-  
-  .background-overlay {
-    animation: overlayShift 8s ease-in-out infinite alternate;
-  }
-}
-
-/* Detener animaciones si el usuario prefiere menos movimiento */
-@media (prefers-reduced-motion: reduce) {
-  .background-overlay {
-    animation: none;
   }
 }
 
@@ -313,7 +360,34 @@ a {
   }
 }
 
-/* Accesibilidad */
+@keyframes typewriterAppear {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.8);
+    filter: blur(3px);
+  }
+  20% {
+    opacity: 0.3;
+    transform: translateX(-10px) scale(0.9);
+    filter: blur(2px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-5px) scale(0.95);
+    filter: blur(1px);
+  }
+  80% {
+    opacity: 0.9;
+    transform: translateX(0) scale(1.05);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -324,7 +398,6 @@ a {
   }
 }
 
-/* Mejoras de contraste para accesibilidad */
 @media (prefers-contrast: high) {
   .background-overlay {
     background: rgba(0, 0, 0, 0.7);
