@@ -1005,112 +1005,15 @@ const GalleryContent = () => (
         <div className="gallery-item">
           <div className="placeholder-image">🌿</div>
           <p>Área de Relajación</p>
-        </div>         
+        </div>
       </div>
       <p className="gallery-note">
-      "Nuestro espacio está especialmente pensado para que te sientas cómodo y en paz desde el primer momento. 
-      Cada detalle ha sido creado para brindarte un ambiente cálido, tranquilo y acogedor, donde puedas desconectarte de la rutina, liberar tensiones y disfrutar de una experiencia de masaje que renueva cuerpo, mente y espíritu."
+        "Nuestro espacio está especialmente pensado para que te sientas cómodo y en paz desde el primer momento.
+        Cada detalle ha sido creado para brindarte un ambiente cálido, tranquilo y acogedor, donde puedas desconectarte de la rutina, liberar tensiones y disfrutar de una experiencia de masaje que renueva cuerpo, mente y espíritu."
       </p>
     </div>
   </>
 )
-
-const TestimonialsContent = () => (
-  <>
-    <style>{`
-      .testimonials-section {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        margin-top: 1rem;
-      }
-
-      .testimonial {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 1.5rem;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        text-align: left;
-      }
-
-      .testimonial-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      .avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .stars {
-        color: #ffd700;
-        font-size: 0.9rem;
-      }
-
-      .testimonial h4 {
-        margin: 0 0 0.2rem 0;
-        font-size: 1rem;
-      }
-
-      .testimonial p {
-        margin: 0;
-        font-style: italic;
-        color: #f0ebe4;
-      }
-    `}</style>
-    <div className="content-card">
-      <h2>Lo que dicen nuestros clientes</h2>
-      <div className="testimonials-section">
-        <div className="testimonial">
-          <div className="testimonial-header">
-            <div className="avatar">👩</div>
-            <div>
-              <h4>Ana García</h4>
-              <div className="stars">⭐⭐⭐⭐⭐</div>
-            </div>
-          </div>
-          <p>"Excelente profesional, me ayudó muchísimo con mis contracturas.
-            El ambiente es súper relajante y María tiene manos mágicas."</p>
-        </div>
-
-        <div className="testimonial">
-          <div className="testimonial-header">
-            <div className="avatar">👨</div>
-            <div>
-              <h4>Carlos Rodríguez</h4>
-              <div className="stars">⭐⭐⭐⭐⭐</div>
-            </div>
-          </div>
-          <p>"Llevo 6 meses viniendo mensualmente. Es increíble cómo ha mejorado
-            mi calidad de sueño y mi nivel de estrés."</p>
-        </div>
-
-        <div className="testimonial">
-          <div className="testimonial-header">
-            <div className="avatar">👩</div>
-            <div>
-              <h4>Laura Martínez</h4>
-              <div className="stars">⭐⭐⭐⭐⭐</div>
-            </div>
-          </div>
-          <p>"Durante mi embarazo, los masajes prenatales fueron un salvavidas.
-            María es muy cuidadosa y profesional."</p>
-        </div>
-      </div>
-    </div>
-  </>
-)
-
 const PricingContent = () => (
   <>
     <style>{`
@@ -1235,7 +1138,7 @@ const LocationContent = () => (
         text-align: left;
       }
 
-      .address-info, .contact-info, .hours-info {
+      .address-info, .contact-info, .hours-info, .gallery-card {
         background: rgba(255, 255, 255, 0.1);
         padding: 1.5rem;
         border-radius: 12px;
@@ -1272,48 +1175,98 @@ const LocationContent = () => (
         box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
       }
 
+      .gallery-images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        justify-content: center;
+      }
+
+      .gallery-images img {
+        width: 100%;
+        max-width: 150px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.15);
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-images img:hover {
+        transform: scale(1.05);
+      }
+
       @media (max-width: 767px) {
         .location-section {
           grid-template-columns: 1fr;
         }
+        .gallery-images img {
+          max-width: 100%;
+        }
       }
     `}</style>
+
     <div className="content-card">
       <h2>Nuestra Ubicación</h2>
       <div className="location-section">
+
         <div className="address-info">
           <h4>📍 Dirección</h4>
-          <p>Av. Principal 1234, Montevideo<br />
+          <p>
+            Av. Principal 1234, Montevideo<br />
             Entre Calle A y Calle B<br />
-            Apartamento 2B</p>
+            Apartamento 2B
+          </p>
         </div>
 
         <div className="contact-info">
           <h4>📞 Contacto</h4>
-          <p>Teléfono: +598 95 978 675<br />
-            Email: info@masajesterapeuticos.com</p>
+          <p>
+            Teléfono: +598 95 978 675<br />
+            Email: joha.g.rt@gmail.com
+          </p>
+          <p>Estamos disponibles para responder tus consultas y agendar tu cita con gusto.</p>
         </div>
 
         <div className="hours-info">
           <h4>🕐 Horarios</h4>
-          <p>Lunes a Viernes: 9:00 - 20:00<br />
+          <p>
+            Lunes a Viernes: 9:00 - 20:00<br />
             Sábados: 9:00 - 18:00<br />
-            Domingos: Solo con cita previa</p>
+            Domingos: Solo con cita previa
+          </p>
+          <p>Te recomendamos reservar tu horario con anticipación para asegurar tu atención personalizada.</p>
+        </div>
+
+        {/* Sección Galería con estilo de card */}
+        <div className="gallery-card">
+          <h4>🏡 Galería del lugar</h4>
+          <p>Conocé nuestro espacio y sentite cómodo antes de tu visita.</p>
+          <div className="gallery-images">
+            <img src="/images/sala1.jpg" alt="Sala de masajes 1" />
+            <img src="/images/sala2.jpg" alt="Sala de masajes 2" />
+            <img src="/images/sala3.jpg" alt="Recepción del local" />
+          </div>
         </div>
 
         <div className="map-placeholder">
           <div className="map-box">
             <h4>🗺️ Mapa</h4>
-            <p>Ver ubicación en Google Maps</p>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="map-link">
+            <p>Encuentra nuestra ubicación exacta en Google Maps:</p>
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="map-link"
+            >
               Abrir en Google Maps
             </a>
           </div>
         </div>
+
       </div>
     </div>
   </>
 )
+
 
 // Main App Component
 function App() {
@@ -1341,7 +1294,6 @@ function App() {
     { id: 'servicios', label: 'Servicios', icon: '💆‍♀️' },
     { id: 'beneficios', label: 'Beneficios', icon: '✨' },
     { id: 'ambiente ', label: 'Ambiente', icon: '🖼️' },
-    { id: 'testimonios', label: 'Testimonios', icon: '💬' },
     { id: 'precios', label: 'Precios', icon: '💰' },
     { id: 'ubicacion', label: 'Ubicación', icon: '📍' }
   ]
@@ -1353,7 +1305,6 @@ function App() {
       'servicios': <ServicesContent />,
       'beneficios': <BenefitsContent />,
       'ambiente ': <GalleryContent />,
-      'testimonios': <TestimonialsContent />,
       'precios': <PricingContent />,
       'ubicacion': <LocationContent />
     }
