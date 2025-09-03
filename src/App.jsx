@@ -27,7 +27,18 @@ const GlobalStyles = () => (
       bottom: 0;
       display: flex;
       flex-direction: column;
-      background: linear-gradient(135deg, #8B4513 0%, #D2B48C 30%, #8B4513 70%, #654321 100%);
+      background: 
+        linear-gradient(135deg, 
+          rgba(139, 69, 19, 0.7) 0%, 
+          rgba(210, 180, 140, 0.6) 30%, 
+          rgba(139, 69, 19, 0.7) 70%, 
+          rgba(101, 67, 33, 0.8) 100%
+        ),
+        url('./src/assets/skills/fondo.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       opacity: 0;
       transition: opacity 0.8s ease-in-out;
       overflow-x: hidden;
@@ -165,26 +176,32 @@ const GlobalStyles = () => (
         min-height: 100vh;
         overflow-y: visible;
         padding: 1rem 0.5rem 4rem;
+        justify-content: center;
+        align-items: center;
       }
       
       .content-card {
-        margin: 0 0.5rem 2rem;
+        margin: 0 auto 2rem auto;
         padding: 1.2rem;
         max-width: 320px;
         width: 90%;
+        align-self: center;
       }
     }
 
     @media (max-width: 480px) {
       .main-content {
         padding: 1rem 0.25rem 3rem;
+        justify-content: center;
+        align-items: center;
       }
       
       .content-card {
         padding: 1rem;
-        margin: 0 0.25rem 1.5rem;
+        margin: 0 auto 1.5rem auto;
         max-width: 280px;
         width: 85%;
+        align-self: center;
       }
       
       .content-card h2 {
@@ -586,7 +603,7 @@ const AppFooter = () => (
   <>
     <style>{`
       .app-footer {
-        margin-top: 2rem;
+        margin-top: 4rem;
         padding: 1.5rem;
         max-width: 600px;
         width: 100%;
@@ -621,18 +638,41 @@ const AppFooter = () => (
 
       @media (max-width: 767px) {
         .app-footer {
-          position: relative;
-          margin-top: 2rem;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: 0;
+          padding: 1rem;
+          background: linear-gradient(135deg, rgba(139, 69, 19, 0.85) 0%, rgba(101, 67, 33, 0.9) 100%);
+          backdrop-filter: blur(10px);
+          border-top: 1px solid rgba(205, 170, 125, 0.2);
+          z-index: 100;
         }
         
         .app-footer p {
-          font-size: 1rem;
+          font-size: 0.9rem;
+          margin: 0;
         }
       }
 
       @media (max-width: 480px) {
+        .app-footer {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: 0;
+          padding: 0.8rem;
+          background: linear-gradient(135deg, rgba(139, 69, 19, 0.9) 0%, rgba(101, 67, 33, 0.95) 100%);
+          backdrop-filter: blur(15px);
+          border-top: 1px solid rgba(205, 170, 125, 0.3);
+          z-index: 100;
+        }
+        
         .app-footer p {
-          font-size: 0.9rem;
+          font-size: 0.8rem;
+          margin: 0;
         }
       }
     `}</style>
