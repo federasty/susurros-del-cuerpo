@@ -34,7 +34,7 @@ const GlobalStyles = () => (
           rgba(139, 69, 19, 0.7) 70%, 
           rgba(101, 67, 33, 0.8) 100%
         ),
-        url('./src/assets/skills/fondo.webp');
+        url('./src/assets/skills/fondo.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -150,7 +150,7 @@ const GlobalStyles = () => (
       line-height: 1.7;
       margin-bottom: 1.8rem;
       text-shadow: 1px 1px 2px rgba(101, 67, 33, 0.3);
-      text-align: left;
+      text-align: center;
       word-spacing: 0.1em;
     }
 
@@ -309,7 +309,7 @@ const HamburgerButton = ({ isOpen, onClick }) => (
         }
       }
     `}</style>
-    <button 
+    <button
       className={`hamburger-btn ${isOpen ? 'active' : ''}`}
       onClick={onClick}
       aria-label="Abrir menú"
@@ -497,7 +497,7 @@ const SideMenu = ({ isOpen, onClose, onSectionChange, activeSection, menuItems }
       <nav className={`side-menu ${isOpen ? 'open' : ''}`}>
         <div className="menu-header">
           <h3>Masajes Terapéuticos</h3>
-          <button 
+          <button
             className="close-btn"
             onClick={onClose}
             aria-label="Cerrar menú"
@@ -519,7 +519,7 @@ const SideMenu = ({ isOpen, onClose, onSectionChange, activeSection, menuItems }
           ))}
         </ul>
       </nav>
-      
+
       {isOpen && (
         <div className="menu-overlay" onClick={onClose}></div>
       )}
@@ -590,7 +590,7 @@ const WhatsAppButton = ({ text = "Reservar por WhatsApp", message }) => (
     <a href={`https://wa.me/59895978675?text=${encodeURIComponent(message || 'Hola, me interesa agendar un masaje terapéutico')}`} target="_blank" rel="noopener noreferrer">
       <button className="whatsapp-button">
         <svg className="whatsapp-icon" viewBox="0 0 24 24" width="20" height="20">
-          <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.064 3.488"/>
+          <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.064 3.488" />
         </svg>
         {text}
       </button>
@@ -687,8 +687,8 @@ const HomeContent = () => (
   <div className="content-card">
     <h2>Masajes Terapéuticos</h2>
     <p>
-      Descubre el poder de la relajación profunda. Nuestros masajes 
-      especializados te ayudan a liberar tensiones, reducir el estrés 
+      Descubre el poder de la relajación profunda. Nuestros masajes
+      especializados te ayudan a liberar tensiones, reducir el estrés
       y restaurar el equilibrio natural de tu cuerpo y mente.
     </p>
     <WhatsAppButton />
@@ -775,13 +775,12 @@ const AboutContent = () => (
         </div>
         <div className="profile-content">
           <p>
-            Soy María González, masajista terapéutica certificada con más de 8 años de experiencia 
-            en técnicas de relajación y bienestar corporal.
+            Soy Johana González, masajista terapéutica profesional certificada en técnicas de relajación y bienestar corporal.
           </p>
           <div className="credentials">
             <h4>Certificaciones:</h4>
             <ul>
-              <li>Certificación en Masoterapia - Instituto Nacional</li>
+              <li>Certificación en Maderoterapia - thai school</li>
               <li>Especialización en Técnicas de Relajación</li>
               <li>Curso de Aromaterapia Terapéutica</li>
             </ul>
@@ -840,20 +839,12 @@ const ServicesContent = () => (
           <p>Enfocado en aliviar contracturas musculares y dolor localizado.</p>
         </div>
         <div className="service-item">
-          <h4>🔥 Piedras Calientes</h4>
-          <p>Terapia con piedras volcánicas que relaja músculos profundos.</p>
+          <h4>✨ Maderoterapia</h4>
+          <p>Es una técnica con madera que estimula el cuerpo, reduce el estrés y alivia dolores musculares y articulares, generando bienestar y relajación.</p>
         </div>
         <div className="service-item">
-          <h4>🌸 Aromaterapia</h4>
-          <p>Combina masaje terapéutico con aceites esenciales naturales.</p>
-        </div>
-        <div className="service-item">
-          <h4>🤰 Masaje Prenatal</h4>
-          <p>Especialmente diseñado para futuras mamás (2do y 3er trimestre).</p>
-        </div>
-        <div className="service-item">
-          <h4>🏃 Deportivo</h4>
-          <p>Ideal para atletas y personas con actividad física intensa.</p>
+          <h4>💆 Masaje Cérvico-Craneal</h4>
+          <p>Alivia el estrés y la tensión, mejora la circulación, reduce la fatiga mental y ayuda con el bruxismo, generando relajación y bienestar.</p>
         </div>
       </div>
     </div>
@@ -941,6 +932,16 @@ const BenefitsContent = () => (
             <li>Promueve la autoconciencia</li>
           </ul>
         </div>
+        <div className="benefit-category">
+          <h4>🌸 Beneficios Estéticos</h4>
+          <ul>
+            <li>Activa la circulación, dejando la piel más luminosa</li>
+            <li>Ayuda a drenar líquidos y reducir la hinchazón</li>
+            <li>Mejora la elasticidad de la piel</li>
+            <li>Favorece la eliminación de toxinas</li>
+            <li>Tonifica músculos y moldea la figura</li>
+          </ul>
+        </div>
       </div>
     </div>
   </>
@@ -1004,15 +1005,11 @@ const GalleryContent = () => (
         <div className="gallery-item">
           <div className="placeholder-image">🌿</div>
           <p>Área de Relajación</p>
-        </div>
-        <div className="gallery-item">
-          <div className="placeholder-image">🛀</div>
-          <p>Zona de Preparación</p>
-        </div>
+        </div>         
       </div>
       <p className="gallery-note">
-        Nuestro espacio está diseñado para brindarte la máxima tranquilidad 
-        y comodidad durante tu sesión de masajes.
+      "Nuestro espacio está especialmente pensado para que te sientas cómodo y en paz desde el primer momento. 
+      Cada detalle ha sido creado para brindarte un ambiente cálido, tranquilo y acogedor, donde puedas desconectarte de la rutina, liberar tensiones y disfrutar de una experiencia de masaje que renueva cuerpo, mente y espíritu."
       </p>
     </div>
   </>
@@ -1082,10 +1079,10 @@ const TestimonialsContent = () => (
               <div className="stars">⭐⭐⭐⭐⭐</div>
             </div>
           </div>
-          <p>"Excelente profesional, me ayudó muchísimo con mis contracturas. 
-          El ambiente es súper relajante y María tiene manos mágicas."</p>
+          <p>"Excelente profesional, me ayudó muchísimo con mis contracturas.
+            El ambiente es súper relajante y María tiene manos mágicas."</p>
         </div>
-        
+
         <div className="testimonial">
           <div className="testimonial-header">
             <div className="avatar">👨</div>
@@ -1094,10 +1091,10 @@ const TestimonialsContent = () => (
               <div className="stars">⭐⭐⭐⭐⭐</div>
             </div>
           </div>
-          <p>"Llevo 6 meses viniendo mensualmente. Es increíble cómo ha mejorado 
-          mi calidad de sueño y mi nivel de estrés."</p>
+          <p>"Llevo 6 meses viniendo mensualmente. Es increíble cómo ha mejorado
+            mi calidad de sueño y mi nivel de estrés."</p>
         </div>
-        
+
         <div className="testimonial">
           <div className="testimonial-header">
             <div className="avatar">👩</div>
@@ -1106,8 +1103,8 @@ const TestimonialsContent = () => (
               <div className="stars">⭐⭐⭐⭐⭐</div>
             </div>
           </div>
-          <p>"Durante mi embarazo, los masajes prenatales fueron un salvavidas. 
-          María es muy cuidadosa y profesional."</p>
+          <p>"Durante mi embarazo, los masajes prenatales fueron un salvavidas.
+            María es muy cuidadosa y profesional."</p>
         </div>
       </div>
     </div>
@@ -1206,7 +1203,7 @@ const PricingContent = () => (
             </div>
           </div>
         </div>
-        
+
         <div className="promotions">
           <h4>🎉 Promociones Especiales</h4>
           <div className="promo-item">
@@ -1286,24 +1283,24 @@ const LocationContent = () => (
       <div className="location-section">
         <div className="address-info">
           <h4>📍 Dirección</h4>
-          <p>Av. Principal 1234, Montevideo<br/>
-          Entre Calle A y Calle B<br/>
-          Apartamento 2B</p>
+          <p>Av. Principal 1234, Montevideo<br />
+            Entre Calle A y Calle B<br />
+            Apartamento 2B</p>
         </div>
-        
+
         <div className="contact-info">
           <h4>📞 Contacto</h4>
-          <p>Teléfono: +598 95 978 675<br/>
-          Email: info@masajesterapeuticos.com</p>
+          <p>Teléfono: +598 95 978 675<br />
+            Email: info@masajesterapeuticos.com</p>
         </div>
-        
+
         <div className="hours-info">
           <h4>🕐 Horarios</h4>
-          <p>Lunes a Viernes: 9:00 - 20:00<br/>
-          Sábados: 9:00 - 18:00<br/>
-          Domingos: Solo con cita previa</p>
+          <p>Lunes a Viernes: 9:00 - 20:00<br />
+            Sábados: 9:00 - 18:00<br />
+            Domingos: Solo con cita previa</p>
         </div>
-        
+
         <div className="map-placeholder">
           <div className="map-box">
             <h4>🗺️ Mapa</h4>
@@ -1343,7 +1340,7 @@ function App() {
     { id: 'sobre-mi', label: 'Sobre Mí', icon: '👤' },
     { id: 'servicios', label: 'Servicios', icon: '💆‍♀️' },
     { id: 'beneficios', label: 'Beneficios', icon: '✨' },
-    { id: 'galeria', label: 'Galería', icon: '🖼️' },
+    { id: 'ambiente ', label: 'Ambiente', icon: '🖼️' },
     { id: 'testimonios', label: 'Testimonios', icon: '💬' },
     { id: 'precios', label: 'Precios', icon: '💰' },
     { id: 'ubicacion', label: 'Ubicación', icon: '📍' }
@@ -1355,7 +1352,7 @@ function App() {
       'sobre-mi': <AboutContent />,
       'servicios': <ServicesContent />,
       'beneficios': <BenefitsContent />,
-      'galeria': <GalleryContent />,
+      'ambiente ': <GalleryContent />,
       'testimonios': <TestimonialsContent />,
       'precios': <PricingContent />,
       'ubicacion': <LocationContent />
@@ -1369,20 +1366,20 @@ function App() {
       <GlobalStyles />
       <div className={`app-container ${isLoaded ? 'loaded' : ''}`}>
         <div className="background-overlay" />
-        
-        <HamburgerButton 
-          isOpen={isMenuOpen} 
-          onClick={toggleMenu} 
+
+        <HamburgerButton
+          isOpen={isMenuOpen}
+          onClick={toggleMenu}
         />
-        
-        <SideMenu 
+
+        <SideMenu
           isOpen={isMenuOpen}
           onClose={toggleMenu}
           onSectionChange={handleSectionChange}
           activeSection={activeSection}
           menuItems={menuItems}
         />
-        
+
         <main className="main-content">
           {renderContent()}
           <AppFooter />
