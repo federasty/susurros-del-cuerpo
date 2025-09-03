@@ -1194,11 +1194,11 @@ const PricingContent = () => (
               <span className="price">$1,800</span>
             </div>
             <div className="price-item">
-              <span>Piedras Calientes (75 min)</span>
+              <span>Cervico Craneal (75 min)</span>
               <span className="price">$2,200</span>
             </div>
             <div className="price-item">
-              <span>Masaje Prenatal (60 min)</span>
+              <span>Maderoterapia (60 min)</span>
               <span className="price">$1,600</span>
             </div>
           </div>
