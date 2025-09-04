@@ -906,31 +906,60 @@ const SideMenu = ({ isOpen, onClose, onSectionChange, activeSection, menuItems }
       }
     `}</style>
     <>
-      <nav className={`side-menu ${isOpen ? 'open' : ''}`}>
-        <div className="menu-header">
-          <h3>Masajes Terapéuticos</h3>
-          <button
-            className="close-btn"
-            onClick={onClose}
-            aria-label="Cerrar menú"
-          >
-            ✕
-          </button>
-        </div>
-        <ul className="menu-list">
-          {menuItems.map((item) => (
-            <li key={item.id}>
-              <button
-                className={`menu-item ${activeSection === item.id ? 'active' : ''}`}
-                onClick={() => onSectionChange(item.id)}
-              >
-                <span className="menu-icon">{item.icon}</span>
-                <span className="menu-label">{item.label}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <>
+        <nav className={`side-menu ${isOpen ? 'open' : ''}`}>
+          {/* Bloque 1: Masajes */}
+          <div className="menu-header">
+            <h3>Masajes Terapéuticos</h3>
+            <button
+              className="close-btn"
+              onClick={onClose}
+              aria-label="Cerrar menú"
+            >
+              ✕
+            </button>
+          </div>
+          <ul className="menu-list">
+            {menuItems
+              .filter(item => !item.sexshop) // Excluimos todo lo de Sex Shop
+              .map(item => (
+                <li key={item.id}>
+                  <button
+                    className={`menu-item ${activeSection === item.id ? 'active' : ''}`}
+                    onClick={() => onSectionChange(item.id)}
+                  >
+                    <span className="menu-icon">{item.icon}</span>
+                    <span className="menu-label">{item.label}</span>
+                  </button>
+                </li>
+              ))}
+          </ul>
+
+          {/* Bloque 2: Sex Shop */}
+          <div className="menu-header">
+            <h3>Sex Shop</h3>
+          </div>
+          <ul className="menu-list">
+            {menuItems
+              .filter(item => item.sexshop) // Solo ítems de Sex Shop
+              .map(item => (
+                <li key={item.id}>
+                  <button
+                    className={`menu-item ${activeSection === item.id ? 'active' : ''}`}
+                    onClick={() => onSectionChange(item.id)}
+                  >
+                    <span className="menu-icon">{item.icon}</span>
+                    <span className="menu-label">{item.label}</span>
+                  </button>
+                </li>
+              ))}
+          </ul>
+        </nav>
+
+
+        {isOpen && <div className="menu-overlay" onClick={onClose}></div>}
+      </>
+
 
       {isOpen && (
         <div className="menu-overlay" onClick={onClose}></div>
@@ -970,7 +999,7 @@ const FloatingWhatsApp = ({ activeSection }) => {
 // Content Sections
 const sections = {
   home: {
-    title: "Bienvenido a Masajes Terapéuticos",
+    title: "Bienvenido a Susurros al Cuerpo",
     content: (
       <>
         <p>
@@ -1002,7 +1031,7 @@ const sections = {
             <p>Tratamiento intensivo para aliviar contracturas y dolores musculares específicos.</p>
           </div>
           <div className="service-item">
-            <h5>🌿 Maderoterapia</h5>
+            <h5>🪵 Maderoterapia</h5>
             <p>Técnica con instrumentos de madera diseñada para moldear el cuerpo, reducir la celulitis y estimular la circulación de manera natural.</p>
           </div>
           <div className="service-item">
@@ -1053,19 +1082,6 @@ const sections = {
           en el cuidado de la salud y el bienestar. Nuestro enfoque holístico combina técnicas
           tradicionales con métodos modernos para ofrecerte la mejor atención personalizada.
         </p>
-        <h4>🎓 Nuestra Formación</h4>
-        <p>
-          • Certificación en Masoterapia Clínica<br />
-          • Especialización en Drenaje Linfático Manual<br />
-          • Formación en Masaje Deportivo y Rehabilitación<br />
-          • Técnicas de Relajación y Bienestar Integral<br />
-        </p>
-        <h4>🏆 Nuestros Valores</h4>
-        <p>
-          Profesionalismo, respeto, confidencialidad y dedicación absoluta al bienestar de cada cliente.
-          Creemos firmemente en la importancia del cuidado personal como base fundamental
-          para una vida plena, equilibrada y saludable.
-        </p>
       </>
     )
   },
@@ -1077,22 +1093,99 @@ const sections = {
           Agenda tu cita de manera fácil y rápida. Estamos aquí para ayudarte a encontrar
           el equilibrio y bienestar que mereces en un ambiente profesional y acogedor.
         </p>
-        <h4>📞 Información de Contacto</h4>
-        <p>
-          <strong>Teléfono:</strong> +598 95 978 675<br />
-          <strong>Ubicación:</strong> Montevideo, Uruguay<br />
-          <strong>Horarios:</strong> Lunes a Sábado de 9:00 a 20:00<br />
-          <strong>Modalidad:</strong> Atención personalizada con cita previa
+      </>
+    )
+  },
+  // Sección principal de Sex Shop
+  'sexshop-main': {
+    title: "Explora nuestro Sex Shop",
+    content: (
+      <>
+        <p>Sumérgete en un espacio dedicado al placer y al bienestar íntimo...</p>
+        <p>Todos nuestros artículos han sido elegidos con discreción y calidad...</p>
+      </>
+    )
+  },
+  // Sub-sección de Juguetes Eróticos
+  'sexshop-toys': {
+    title: "Juguetes Eróticos",
+    content: (
+      <>
+        <h4>1️⃣ Juguetes Eróticos</h4>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+          <li>💖 Vibradores y masajeadores</li>
+          <li>🌀 Anillos y estimuladores</li>
+          <li>🍆 Consoladores</li>
+          <li>👫 Kits para parejas</li>
+        </ul>
+        <p style={{ marginTop: '1rem' }}>
+          Cada producto está diseñado para brindarte comodidad y seguridad...
         </p>
-        <h4>📅 Cómo Reservar tu Cita</h4>
-        <p>
-          1. Contacta vía WhatsApp haciendo clic en el botón flotante<br />
-          2. Consulta disponibilidad de horarios<br />
-          3. Elige tu tipo de masaje preferido<br />
-          4. Confirma fecha, hora y duración<br />
-          5. Recibe confirmación de tu reserva<br />
-          6. ¡Disfruta tu sesión de bienestar y relajación!
-        </p>
+      </>
+    )
+  },
+  'sexshop-lenceria': {
+    title: "Lencería y Ropa Erótica",
+    content: (
+      <>
+        <h4>2️⃣ Lencería y Ropa Erótica</h4>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+          <li>👙 Conjuntos sensuales</li>
+          <li>💃 Bodys y corsets</li>
+          <li>🧦 Medias y accesorios de seducción</li>
+        </ul>
+      </>
+    )
+  },
+  'sexshop-lubricantes': {
+    title: "Lubricantes y Aceites",
+    content: (
+      <>
+        <h4>3️⃣ Lubricantes y Aceites</h4>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+          <li>💧 Lubricantes base agua y silicona</li>
+          <li>🛀 Aceites para masaje íntimo</li>
+          <li>🌿 Cremas y geles estimulantes</li>
+        </ul>
+      </>
+    )
+  },
+  'sexshop-accesorios': {
+    title: "Accesorios para Juegos",
+    content: (
+      <>
+        <h4>4️⃣ Accesorios para Juegos de Pareja</h4>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+          <li>🔒 Esposas y vendas para ojos</li>
+          <li>🎲 Juegos eróticos y cartas para parejas</li>
+          <li>🧩 Herramientas para roleplay</li>
+        </ul>
+      </>
+    )
+  },
+  'sexshop-higiene': {
+    title: "Higiene Íntima",
+    content: (
+      <>
+        <h4>5️⃣ Higiene Íntima</h4>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+          <li>🧴 Limpiadores de juguetes</li>
+          <li>🧼 Protectores y desinfectantes</li>
+          <li>🥽 Condones y preservativos</li>
+        </ul>
+      </>
+    )
+  },
+  'sexshop-promos': {
+    title: "Promociones",
+    content: (
+      <>
+        <h4>6️⃣ Promociones y Kits Especiales</h4>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+          <li>🎁 Paquetes de iniciación</li>
+          <li>📦 Kits temáticos</li>
+          <li>🔥 Ofertas del mes</li>
+        </ul>
       </>
     )
   }
@@ -1105,12 +1198,21 @@ const MassageTherapyApp = () => {
   const [activeSection, setActiveSection] = useState('home')
 
   const menuItems = [
-    { id: 'home', label: 'Inicio', icon: '🏠' },
-    { id: 'services', label: 'Servicios', icon: '💆‍♀️' },
-    { id: 'benefits', label: 'Beneficios', icon: '✨' },
-    { id: 'about', label: 'Sobre Nosotros', icon: '👥' },
-    { id: 'contact', label: 'Contacto', icon: '📞' }
-  ]
+  { id: 'home', label: 'Inicio', icon: '🏠' },
+  { id: 'services', label: 'Servicios', icon: '💆‍♀️' },
+  { id: 'benefits', label: 'Beneficios', icon: '✨' },
+  { id: 'about', label: 'Sobre Nosotros', icon: '👥' },
+  { id: 'contact', label: 'Contacto', icon: '📞' },
+
+  // Bloque Sex Shop
+  { id: 'sexshop-main', label: 'Sex Shop', icon: '🛍️', sexshop: true },
+  { id: 'sexshop-toys', label: 'Juguetes Eróticos', icon: '💖', sexshop: true },
+  { id: 'sexshop-lenceria', label: 'Lencería y Ropa Erótica', icon: '👙', sexshop: true },
+  { id: 'sexshop-lubricantes', label: 'Lubricantes y Aceites', icon: '🛀', sexshop: true },
+  { id: 'sexshop-accesorios', label: 'Accesorios para Juegos', icon: '🔒', sexshop: true },
+  { id: 'sexshop-higiene', label: 'Higiene Íntima', icon: '🧴', sexshop: true },
+  { id: 'sexshop-promos', label: 'Promociones', icon: '🎁', sexshop: true }
+];
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100)
