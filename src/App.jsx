@@ -1111,7 +1111,6 @@ const sections = {
     title: "Juguetes Eróticos",
     content: (
       <>
-        <h4>1️⃣ Juguetes Eróticos</h4>
         <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
           <li>💖 Vibradores y masajeadores</li>
           <li>🌀 Anillos y estimuladores</li>
@@ -1128,7 +1127,6 @@ const sections = {
     title: "Lencería y Ropa Erótica",
     content: (
       <>
-        <h4>2️⃣ Lencería y Ropa Erótica</h4>
         <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
           <li>👙 Conjuntos sensuales</li>
           <li>💃 Bodys y corsets</li>
@@ -1141,7 +1139,6 @@ const sections = {
     title: "Lubricantes y Aceites",
     content: (
       <>
-        <h4>3️⃣ Lubricantes y Aceites</h4>
         <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
           <li>💧 Lubricantes base agua y silicona</li>
           <li>🛀 Aceites para masaje íntimo</li>
@@ -1154,7 +1151,6 @@ const sections = {
     title: "Accesorios para Juegos",
     content: (
       <>
-        <h4>4️⃣ Accesorios para Juegos de Pareja</h4>
         <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
           <li>🔒 Esposas y vendas para ojos</li>
           <li>🎲 Juegos eróticos y cartas para parejas</li>
@@ -1167,7 +1163,6 @@ const sections = {
     title: "Higiene Íntima",
     content: (
       <>
-        <h4>5️⃣ Higiene Íntima</h4>
         <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
           <li>🧴 Limpiadores de juguetes</li>
           <li>🧼 Protectores y desinfectantes</li>
@@ -1180,7 +1175,6 @@ const sections = {
     title: "Promociones",
     content: (
       <>
-        <h4>6️⃣ Promociones y Kits Especiales</h4>
         <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
           <li>🎁 Paquetes de iniciación</li>
           <li>📦 Kits temáticos</li>
