@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import "./App.css";
+
 
 // Global Styles Component
 const GlobalStyles = () => (

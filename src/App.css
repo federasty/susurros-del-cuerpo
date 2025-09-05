@@ -1,364 +1,552 @@
+/* ===============================================
+   ULTRA-PROFESSIONAL MOBILE CSS WITH ADVANCED EFFECTS - COMPLETED
+   =============================================== */
+
+/* Enhanced Mobile Breakpoint - Tablet */
+@media (max-width: 1024px) {
+  .app-container {
+    background-size: 280% 280%, 320% 320%, 370% 370%, 300% 300%, 220% 220%, cover;
+    animation: 
+      backgroundShiftMobile 18s ease-in-out infinite,
+      subtleGlowMobile 10s ease-in-out infinite alternate;
+  }
+
+  @keyframes backgroundShiftMobile {
+    0%, 100% {
+      background-position: 0% 0%, 100% 100%, 50% 50%, 100% 0%, 30% 70%, center;
+      filter: brightness(1.02) saturate(1.15) contrast(1.05);
+    }
+    50% {
+      background-position: 65% 35%, 35% 65%, 75% 25%, 65% 35%, 85% 15%, center;
+      filter: brightness(1.15) saturate(1.35) contrast(1.15);
+    }
+  }
+
+  @keyframes subtleGlowMobile {
+    0% {
+      box-shadow: inset 0 0 100px rgba(255, 182, 193, 0.18);
+    }
+    100% {
+      box-shadow: inset 0 0 140px rgba(255, 105, 180, 0.28);
+    }
+  }
+
+  .main-content {
+    padding: 1.2rem 0.5rem 4rem;
+    background: 
+      radial-gradient(ellipse at 25% 15%, rgba(255, 255, 255, 0.1) 0%, transparent 45%),
+      radial-gradient(ellipse at 75% 85%, rgba(255, 240, 245, 0.08) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, rgba(255, 182, 193, 0.05) 0%, transparent 40%);
+    backdrop-filter: blur(2px);
+  }
+  
+  /* Compact Premium Hamburger Button */
+  .hamburger-btn {
+    width: 56px;
+    height: 56px;
+    top: 1.2rem;
+    right: 1.2rem;
+    border-radius: 18px;
+    background: 
+      linear-gradient(145deg,
+        rgba(255, 255, 255, 0.97) 0%,
+        rgba(255, 245, 248, 0.93) 30%,
+        rgba(255, 235, 242, 0.90) 70%,
+        rgba(255, 255, 255, 0.95) 100%
+      );
+    backdrop-filter: blur(35px) saturate(1.7);
+    box-shadow: 
+      0 12px 40px rgba(255, 105, 180, 0.4),
+      0 6px 20px rgba(255, 182, 193, 0.35),
+      0 3px 12px rgba(255, 192, 203, 0.25),
+      0 0 0 2px rgba(255, 255, 255, 0.9),
+      0 0 25px rgba(255, 182, 193, 0.5),
+      0 0 45px rgba(255, 105, 180, 0.3),
+      inset 0 2px 0 rgba(255, 255, 255, 0.98),
+      inset 0 -1px 0 rgba(255, 105, 180, 0.25);
+    border: 2px solid rgba(255, 182, 193, 0.5);
+    animation: compactFloat 3.5s ease-in-out infinite;
+  }
+
+  @keyframes compactFloat {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    33% {
+      transform: translateY(-2px) rotate(1deg) scale(1.02);
+    }
+    66% {
+      transform: translateY(-1px) rotate(-1deg) scale(1.01);
+    }
+  }
+
+  .hamburger-btn:hover {
+    transform: scale(1.2) rotate(12deg) translateY(-3px);
+    box-shadow: 
+      0 18px 60px rgba(255, 105, 180, 0.5),
+      0 10px 30px rgba(255, 182, 193, 0.45),
+      0 5px 18px rgba(255, 192, 203, 0.35),
+      0 0 0 3px rgba(255, 255, 255, 0.95),
+      0 0 40px rgba(255, 182, 193, 0.7),
+      0 0 70px rgba(255, 105, 180, 0.5),
+      0 0 100px rgba(255, 192, 203, 0.3),
+      inset 0 3px 0 rgba(255, 255, 255, 1),
+      inset 0 -2px 0 rgba(255, 105, 180, 0.35);
+    animation: compactPulseHover 0.8s ease-in-out infinite alternate;
+  }
+
+  @keyframes compactPulseHover {
+    0% {
+      filter: brightness(1.05) saturate(1.4);
+    }
+    100% {
+      filter: brightness(1.15) saturate(1.6);
+    }
+  }
+
+  .hamburger-btn span {
+    width: 26px;
+    height: 2.5px;
+    box-shadow: 
+      0 0 8px rgba(255, 105, 180, 0.6),
+      0 0 16px rgba(255, 105, 180, 0.25);
+  }
+
+  .hamburger-btn span::before,
+  .hamburger-btn span::after {
+    width: 26px;
+    height: 2.5px;
+    box-shadow: 
+      0 0 6px rgba(255, 105, 180, 0.5),
+      0 0 12px rgba(255, 105, 180, 0.2);
+  }
+
+  .hamburger-btn span::before {
+    transform: translateY(-7px);
+  }
+
+  .hamburger-btn span::after {
+    transform: translateY(7px);
+  }
+}
+
+/* Premium Mobile Portrait - 767px and below */
 @media (max-width: 767px) {
-    .app-container {
-      position: relative;
-      height: auto;
-      min-height: 100vh;
-      overflow-y: visible;
+  .app-container {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+    background-size: 300% 300%, 350% 350%, 400% 400%, 320% 320%, 250% 250%, cover;
+    animation: 
+      backgroundShiftMobilePro 16s ease-in-out infinite,
+      mobileGlowPulse 8s ease-in-out infinite;
+  }
+
+  @keyframes backgroundShiftMobilePro {
+    0%, 100% {
+      background-position: 10% 10%, 90% 90%, 40% 60%, 90% 10%, 20% 80%, center;
+      filter: brightness(1.05) saturate(1.2) contrast(1.08);
     }
-    
-    .main-content {
-      height: auto;
-      min-height: 100vh;
-      overflow-y: visible;
-      padding: 1rem 0.5rem 4rem;
+    33% {
+      background-position: 40% 20%, 60% 80%, 70% 30%, 80% 20%, 50% 50%, center;
+      filter: brightness(1.1) saturate(1.3) contrast(1.12);
     }
-    
-    .hamburger-btn {
-      width: 58px;
-      height: 58px;
-      top: 1.2rem;
-      right: 1.2rem;
-      border-radius: 18px;
-    }
-    
-    .hamburger-btn span {
-      width: 26px;
-    }
-    
-    .side-menu {
-      width: 360px;
-      right: -380px;
-    }
-    
-    .menu-header {
-      padding: 2.5rem 2rem 1.5rem;
-    }
-    
-    .menu-header h3 {
-      font-size: 1.3rem;
-    }
-    
-    .close-btn {
-      width: 44px;
-      height: 44px;
-      font-size: 1.2rem;
-    }
-    
-    .menu-item {
-      padding: 1.3rem 2rem;
-      font-size: 1.05rem;
-      gap: 1.3rem;
-    }
-    
-    .menu-icon {
-      font-size: 1.5rem;
-      width: 30px;
-      height: 30px;
-    }
-    
-    .content-card {
-      margin: 0 0.5rem 2rem;
-      padding: 1.2rem;
-      max-width: 320px;
-      width: 90%;
-    }
-    
-    .services-grid, .benefits-section, .gallery-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .location-section {
-      grid-template-columns: 1fr;
-    }
-    
-    .price-item {
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: center;
-    }
-    
-    .app-footer {
-      position: relative;
-      margin-top: 2rem;
-    }
-    
-    .app-footer p {
-      font-size: 1rem;
+    66% {
+      background-position: 70% 40%, 30% 60%, 20% 70%, 70% 40%, 80% 20%, center;
+      filter: brightness(1.08) saturate(1.25) contrast(1.1);
     }
   }
 
-  @media (max-width: 480px) {
-    .main-content {
-      padding: 1rem 0.25rem 3rem;
+  @keyframes mobileGlowPulse {
+    0% {
+      box-shadow: 
+        inset 0 0 120px rgba(255, 182, 193, 0.2),
+        inset 0 0 200px rgba(255, 105, 180, 0.1);
     }
-    
-    .hamburger-btn {
-      width: 54px;
-      height: 54px;
-      top: 1rem;
-      right: 1rem;
-      border-radius: 16px;
+    50% {
+      box-shadow: 
+        inset 0 0 160px rgba(255, 105, 180, 0.3),
+        inset 0 0 250px rgba(255, 182, 193, 0.15);
     }
-    
-    .hamburger-btn span {
-      width: 24px;
-      height: 2.5px;
-    }
-    
-    .side-menu {
-      width: 340px;
-      right: -360px;
-    }
-    
-    .menu-header {
-      padding: 2.2rem 1.8rem 1.2rem;
-    }
-    
-    .menu-header h3 {
-      font-size: 1.2rem;
-    }
-    
-    .close-btn {
-      width: 42px;
-      height: 42px;
-      font-size: 1.1rem;
-    }
-    
-    .menu-item {
-      padding: 1.2rem 1.8rem;
-      font-size: 1rem;
-      gap: 1.2rem;
-    }
-    
-    .menu-icon {
-      font-size: 1.4rem;
-      width: 28px;
-      height: 28px;
-    }
-    
-    .content-card {
-      padding: 1rem;
-      margin: 0 0.25rem 1.5rem;
-      max-width: 280px;
-      width: 85%;
-    }
-    
-    .content-card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-    }
-    
-    .content-card p {
-      font-size: 0.85rem;
-      margin-bottom: 1.2rem;
-    }
-    
-    .whatsapp-button {
-      padding: 0.7rem 1.2rem;
-      font-size: 0.85rem;
-      max-width: 250px;
-    }
-    
-    .app-footer p {
-      font-size: 0.9rem;
+    100% {
+      box-shadow: 
+        inset 0 0 120px rgba(255, 182, 193, 0.2),
+        inset 0 0 200px rgba(255, 105, 180, 0.1);
     }
   }
 
-  /* Ultra-wide screens optimization */
-  @media (min-width: 1400px) {
-    .hamburger-btn {
-      width: 70px;
-      height: 70px;
-      border-radius: 22px;
+  /* Enhanced WhatsApp Button for Small Screens */
+  .whatsapp-button {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+    max-width: 280px;
+    background: 
+      linear-gradient(135deg, 
+        #2ee76f 0%, 
+        #25d366 30%,
+        #128c7e 70%,
+        #0d7377 100%
+      );
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 
+      0 8px 25px rgba(37, 211, 102, 0.4),
+      0 4px 15px rgba(18, 140, 126, 0.3),
+      0 0 0 2px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    animation: whatsappGlow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes whatsappGlow {
+    0% {
+      box-shadow: 
+        0 8px 25px rgba(37, 211, 102, 0.4),
+        0 4px 15px rgba(18, 140, 126, 0.3),
+        0 0 0 2px rgba(255, 255, 255, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
     }
-    
-    .hamburger-btn span {
-      width: 32px;
-      height: 4px;
-    }
-    
-    .side-menu {
-      width: 450px;
-      right: -470px;
-    }
-    
-    .menu-header {
-      padding: 3.5rem 3rem 2.5rem;
-    }
-    
-    .menu-header h3 {
-      font-size: 1.8rem;
-    }
-    
-    .close-btn {
-      width: 52px;
-      height: 52px;
-      font-size: 1.4rem;
-    }
-    
-    .menu-item {
-      padding: 1.8rem 3rem;
-      font-size: 1.2rem;
-      gap: 1.8rem;
-    }
-    
-    .menu-icon {
-      font-size: 1.8rem;
-      width: 36px;
-      height: 36px;
-    }
-  }  @media (max-width: 767px) {
-    .app-container {
-      position: relative;
-      height: auto;
-      min-height: 100vh;
-      overflow-y: visible;
-    }
-    
-    .main-content {
-      height: auto;
-      min-height: 100vh;
-      overflow-y: visible;
-      padding: 1rem 0.5rem 4rem;
-    }
-    
-    .hamburger-btn {
-      width: 52px;
-      height: 52px;
-      top: 1rem;
-      right: 1rem;
-    }
-    
-    .hamburger-btn span {
-      width: 22px;
-    }
-    
-    .side-menu {
-      width: 320px;
-      right: -340px;
-    }
-    
-    .menu-header {
-      padding: 2rem 1.5rem 1rem;
-    }
-    
-    .menu-header h3 {
-      font-size: 1.2rem;
-    }
-    
-    .menu-item {
-      padding: 1rem 1.5rem;
-      font-size: 1rem;
-    }
-    
-    .menu-icon {
-      font-size: 1.3rem;
-    }
-    
-    .content-card {
-      margin: 0 0.5rem 2rem;
-      padding: 1.2rem;
-      max-width: 320px;
-      width: 90%;
-    }
-    
-    .services-grid, .benefits-section, .gallery-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .location-section {
-      grid-template-columns: 1fr;
-    }
-    
-    .price-item {
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: center;
-    }
-    
-    .app-footer {
-      position: relative;
-      margin-top: 2rem;
-    }
-    
-    .app-footer p {
-      font-size: 1rem;
+    100% {
+      box-shadow: 
+        0 12px 35px rgba(37, 211, 102, 0.5),
+        0 6px 20px rgba(18, 140, 126, 0.4),
+        0 0 0 2px rgba(255, 255, 255, 0.3),
+        0 0 30px rgba(37, 211, 102, 0.3),
+        inset 0 3px 0 rgba(255, 255, 255, 0.4);
     }
   }
 
-  @media (max-width: 480px) {
-    .main-content {
-      padding: 1rem 0.25rem 3rem;
+  .whatsapp-button:hover {
+    transform: scale(1.05) translateY(-2px);
+    background: 
+      linear-gradient(135deg, 
+        #3ef57d 0%, 
+        #2ee76f 30%,
+        #25d366 70%,
+        #1fa55a 100%
+      );
+    box-shadow: 
+      0 15px 45px rgba(37, 211, 102, 0.6),
+      0 8px 25px rgba(18, 140, 126, 0.5),
+      0 0 0 3px rgba(255, 255, 255, 0.4),
+      0 0 50px rgba(37, 211, 102, 0.4),
+      inset 0 4px 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Ultra-Premium Mobile Small - 480px and below */
+@media (max-width: 480px) {
+  .app-container {
+    background-size: 320% 320%, 380% 380%, 420% 420%, 350% 350%, 280% 280%, cover;
+    animation: 
+      backgroundShiftSmall 14s ease-in-out infinite,
+      smallDeviceGlow 6s ease-in-out infinite;
+  }
+
+  @keyframes backgroundShiftSmall {
+    0%, 100% {
+      background-position: 15% 15%, 85% 85%, 35% 65%, 85% 15%, 15% 85%, center;
+      filter: brightness(1.08) saturate(1.25) contrast(1.1);
     }
-    
-    .hamburger-btn {
-      width: 48px;
-      height: 48px;
-      top: 0.8rem;
-      right: 0.8rem;
-    }
-    
-    .hamburger-btn span {
-      width: 20px;
-      height: 2.5px;
-    }
-    
-    .side-menu {
-      width: 300px;
-      right: -320px;
-    }
-    
-    .menu-header {
-      padding: 1.8rem 1.2rem 0.8rem;
-    }
-    
-    .menu-header h3 {
-      font-size: 1.1rem;
-    }
-    
-    .close-btn {
-      width: 38px;
-      height: 38px;
-      font-size: 1.1rem;
-    }
-    
-    .menu-item {
-      padding: 0.9rem 1.2rem;
-      font-size: 0.95rem;
-      gap: 1rem;
-    }
-    
-    .menu-icon {
-      font-size: 1.2rem;
-      width: 22px;
-      height: 22px;
-    }
-    
-    .content-card {
-      padding: 1rem;
-      margin: 0 0.25rem 1.5rem;
-      max-width: 280px;
-      width: 85%;
-    }
-    
-    
-    .content-card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-    }
-    
-    .content-card p {
-      font-size: 0.85rem;
-      margin-bottom: 1.2rem;
-    }
-    
-    .whatsapp-button {
-      padding: 0.7rem 1.2rem;
-      font-size: 0.85rem;
-      max-width: 250px;
-    }
-    
-    .app-footer p {
-      font-size: 0.9rem;
+    50% {
+      background-position: 60% 40%, 40% 60%, 80% 20%, 70% 30%, 80% 20%, center;
+      filter: brightness(1.08) saturate(1.25) contrast(1.1);
     }
   }
+
+  @keyframes smallDeviceGlow {
+    0% {
+      box-shadow: 
+        inset 0 0 140px rgba(255, 182, 193, 0.25),
+        inset 0 0 220px rgba(255, 105, 180, 0.15);
+    }
+    50% {
+      box-shadow: 
+        inset 0 0 180px rgba(255, 105, 180, 0.35),
+        inset 0 0 280px rgba(255, 182, 193, 0.2);
+    }
+    100% {
+      box-shadow: 
+        inset 0 0 140px rgba(255, 182, 193, 0.25),
+        inset 0 0 220px rgba(255, 105, 180, 0.15);
+    }
+  }
+
+  .main-content {
+    padding: 1.2rem 0.5rem 4rem;
+    background: 
+      radial-gradient(ellipse at 25% 15%, rgba(255, 255, 255, 0.1) 0%, transparent 45%),
+      radial-gradient(ellipse at 75% 85%, rgba(255, 240, 245, 0.08) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, rgba(255, 182, 193, 0.05) 0%, transparent 40%);
+    backdrop-filter: blur(2px);
+  }
+
+  /* Ultra-Compact Content Card */
+  .content-card {
+    padding: 1.8rem 1.5rem;
+    margin: 0.8rem auto 2rem;
+    max-width: 340px;
+    width: 90%;
+    border-radius: 24px;
+    background: 
+      linear-gradient(150deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 252, 253, 0.95) 20%,
+        rgba(255, 248, 250, 0.92) 40%,
+        rgba(255, 244, 247, 0.90) 60%,
+        rgba(255, 240, 245, 0.92) 80%,
+        rgba(255, 255, 255, 0.96) 100%
+      );
+    backdrop-filter: blur(50px) saturate(1.8) brightness(1.03);
+    box-shadow: 
+      0 20px 60px rgba(255, 105, 180, 0.35),
+      0 12px 35px rgba(255, 182, 193, 0.3),
+      0 6px 20px rgba(255, 192, 203, 0.25),
+      0 0 0 2px rgba(255, 255, 255, 0.85),
+      0 0 45px rgba(255, 182, 193, 0.5),
+      0 0 80px rgba(255, 105, 180, 0.3),
+      inset 0 2px 0 rgba(255, 255, 255, 0.95),
+      inset 0 -2px 0 rgba(255, 182, 193, 0.3);
+    animation: compactCardFloat 5s ease-in-out infinite;
+  }
+
+  @keyframes compactCardFloat {
+    0%, 100% {
+      transform: translateY(0px) rotateX(0deg);
+    }
+    33% {
+      transform: translateY(-3px) rotateX(1deg);
+    }
+    66% {
+      transform: translateY(-1px) rotateX(-1deg);
+    }
+  }
+
+  .content-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 30px 90px rgba(255, 105, 180, 0.4),
+      0 18px 50px rgba(255, 182, 193, 0.35),
+      0 10px 30px rgba(255, 192, 203, 0.3),
+      0 0 0 3px rgba(255, 255, 255, 0.9),
+      0 0 60px rgba(255, 182, 193, 0.6),
+      0 0 100px rgba(255, 105, 180, 0.4),
+      0 0 140px rgba(255, 192, 203, 0.2),
+      inset 0 3px 0 rgba(255, 255, 255, 0.98),
+      inset 0 -3px 0 rgba(255, 182, 193, 0.4);
+    animation: compactCardPulse 1.2s ease-in-out infinite alternate;
+  }
+
+  @keyframes compactCardPulse {
+    0% {
+      filter: brightness(1.02) saturate(1.5);
+    }
+    100% {
+      filter: brightness(1.08) saturate(1.7);
+    }
+  }
+
+  .content-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(140deg, 
+      #b91372 0%, 
+      #d63384 20%,
+      #e91e63 40%, 
+      #ff1744 60%,
+      #d63384 80%,
+      #ad1457 100%
+    );
+    background-size: 250% 250%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: compactGradientFlow 3s ease-in-out infinite;
+    text-shadow: 
+      0 0 20px rgba(255, 105, 180, 0.7),
+      0 0 40px rgba(255, 182, 193, 0.5);
+  }
+
+  @keyframes compactGradientFlow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .content-card p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #6d1a43;
+    line-height: 1.8;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+    animation: compactTextFade 1.5s ease-out 0.5s both;
+  }
+
+  @keyframes compactTextFade {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(1px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0px);
+    }
+  }
+}
+
+/* Ultra-Compact Footer */
+.app-footer {
+  margin-top: 2.5rem;
+  padding: 1.8rem 1rem;
+  background: 
+    linear-gradient(140deg,
+      rgba(255, 245, 248, 0.85) 0%,
+      rgba(255, 235, 242, 0.9) 50%,
+      rgba(255, 240, 245, 0.88) 100%
+    );
+  backdrop-filter: blur(25px) saturate(1.4);
+  border-top: 2px solid rgba(255, 182, 193, 0.4);
+}
+
+.app-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 105, 180, 0.7) 20%,
+    rgba(255, 182, 193, 0.9) 40%,
+    rgba(255, 105, 180, 0.8) 60%,
+    rgba(255, 182, 193, 0.9) 80%,
+    transparent 100%
+  );
+  animation: compactFooterGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes compactFooterGlow {
+  0% {
+    opacity: 0.7;
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 16px rgba(255, 105, 180, 0.6);
+  }
+}
+
+.app-footer p {
+  font-size: 0.95rem;
+  color: #6d1a43;
+  font-weight: 600;
+  text-shadow: 
+    0 1px 3px rgba(255, 255, 255, 0.9),
+    0 2px 6px rgba(255, 240, 245, 0.5);
+  animation: footerTextGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes footerTextGlow {
+  0% {
+    text-shadow: 
+      0 1px 3px rgba(255, 255, 255, 0.9),
+      0 2px 6px rgba(255, 240, 245, 0.5);
+  }
+  100% {
+    text-shadow: 
+      0 2px 6px rgba(255, 255, 255, 0.95),
+      0 4px 12px rgba(255, 240, 245, 0.7),
+      0 0 15px rgba(255, 182, 193, 0.3);
+  }
+}
+
+/* Performance optimizations for all devices */
+@media (prefers-reduced-motion: reduce) {
+  *, 
+  *::before, 
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Enhanced focus states for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+  .hamburger-btn:focus-visible,
+  .close-btn:focus-visible,
+  .menu-item:focus-visible {
+    outline: 3px solid rgba(255, 105, 180, 0.6);
+    outline-offset: 2px;
+    animation: focusGlow 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes focusGlow {
+    0% {
+      outline-color: rgba(255, 105, 180, 0.6);
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+    }
+    100% {
+      outline-color: rgba(255, 105, 180, 0.9);
+      box-shadow: 0 0 40px rgba(255, 105, 180, 0.5);
+    }
+  }
+}
+
+/* Print optimizations */
+@media print {
+  .hamburger-btn,
+  .side-menu,
+  .app-footer::before {
+    display: none !important;
+  }
+  
+  .content-card,
+  .service-item,
+  .price-item {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    background: white !important;
+    border: 1px solid #ddd !important;
+    page-break-inside: avoid;
+  }
+  
+  .app-container {
+    background: white !important;
+    filter: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .hamburger-btn,
+  .close-btn,
+  .menu-item {
+    border: 2px solid currentColor;
+  }
+  
+  .menu-icon {
+    background: currentColor;
+    color: white;
+  }
+  
+  .content-card {
+    border: 3px solid #d63384;
+    background: white;
+  }
+}
