@@ -18,7 +18,7 @@ const BackToSelectionButton = ({ serviceType }) => {
       >
         <span className="back-arrow">↩︎</span>
         <span className="back-text">
-          {serviceType === "masajes" ? "Servicios" : "Servicios"}
+          {serviceType === "masajes" ? "VOLVER" : "VOLVER"}
         </span>
       </button>
     </div>

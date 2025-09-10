@@ -13,12 +13,12 @@
 
 a {
   font-weight: 500;
-  color: #e91e63;
+  color: #646cff;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #e91e63;
+  color: #6d1e59;
 }
 
 body {
@@ -47,7 +47,7 @@ button {
 }
 
 button:hover {
-  border-color: #e91e63;
+  border-color: #646cff;
 }
 
 button:focus,
@@ -57,12 +57,12 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #e91e63;
+    color: #213547;
     background-color: #ffffff;
   }
 
   a:hover {
-    color: #e91e63;
+    color: #747bff;
   }
 
   button {
@@ -113,8 +113,69 @@ body {
   overflow-y: auto;
 }
 
+/* Fondo rosa premium específico para SeleccionServicios */
+.seleccion-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow-x: hidden;
+  
+  /* Gradiente de fondo profesional con tonos rosa - EL MISMO QUE VENÍAMOS TRABAJANDO */
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 182, 193, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at top right, rgba(255, 192, 203, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(255, 182, 224, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(255, 105, 180, 0.3) 0%, transparent 60%),
+    linear-gradient(135deg,
+      rgba(255, 240, 245, 0.95) 0%,
+      rgba(255, 228, 225, 0.9) 25%,
+      rgba(255, 182, 193, 0.85) 50%,
+      rgba(255, 192, 203, 0.9) 75%,
+      rgba(255, 182, 224, 0.95) 100%);
+  
+  background-size: 120% 120%, 110% 110%, 130% 130%, 115% 115%, 100% 100%;
+  background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, center;
+  background-attachment: fixed;
+  animation: backgroundFlow 20s ease-in-out infinite;
+}
+
+/* Animación del fondo rosa */
+@keyframes backgroundFlow {
+  0%, 100% {
+    background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, center;
+  }
+  25% {
+    background-position: 10% 5%, 90% 10%, 5% 95%, 95% 90%, center;
+  }
+  50% {
+    background-position: 5% 10%, 95% 5%, 10% 90%, 90% 95%, center;
+  }
+  75% {
+    background-position: 15% 0%, 85% 15%, 0% 85%, 100% 85%, center;
+  }
+}
+
 .app-container.loaded {
   opacity: 1;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 192, 203, 0.08) 0%, transparent 50%);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .main-content {
@@ -291,6 +352,291 @@ body {
   background: rgba(255, 255, 255, 0.85);
 }
 
+/* Fondo rosa premium específico para SeleccionServicios */
+.seleccion-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow-x: hidden;
+  
+  /* Gradiente de fondo profesional con tonos rosa - EL MISMO QUE VENÍAMOS TRABAJANDO */
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 182, 193, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at top right, rgba(255, 192, 203, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(255, 182, 224, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(255, 105, 180, 0.3) 0%, transparent 60%),
+    linear-gradient(135deg,
+      rgba(255, 240, 245, 0.95) 0%,
+      rgba(255, 228, 225, 0.9) 25%,
+      rgba(255, 182, 193, 0.85) 50%,
+      rgba(255, 192, 203, 0.9) 75%,
+      rgba(255, 182, 224, 0.95) 100%);
+  
+  background-size: 120% 120%, 110% 110%, 130% 130%, 115% 115%, 100% 100%;
+  background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, center;
+  background-attachment: fixed;
+  animation: backgroundFlow 20s ease-in-out infinite;
+}
+
+.seleccion-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 192, 203, 0.08) 0%, transparent 50%);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* GRID REDUCIDO - Más compacto y centrado */
+.seleccion-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px; /* Reducido de 1200px */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Reducido de 320px */
+  gap: 2rem; /* Reducido de 3rem */
+  padding: 1.5rem 0; /* Reducido de 2rem */
+}
+
+.servicio-card {
+  background:
+    linear-gradient(145deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 240, 245, 0.92) 30%,
+      rgba(255, 228, 225, 0.90) 70%,
+      rgba(255, 182, 193, 0.88) 100%);
+  
+  backdrop-filter: blur(25px);
+  border-radius: 28px;
+  padding: 2.5rem 2rem; /* Reducido de 3rem 2.5rem */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  /* Sombras profesionales en capas */
+  box-shadow:
+    0 25px 60px rgba(255, 105, 180, 0.15),
+    0 15px 35px rgba(255, 182, 193, 0.12),
+    0 8px 20px rgba(255, 105, 180, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 105, 180, 0.1);
+  
+  border: 2px solid rgba(255, 182, 193, 0.3);
+  transform: translateY(0) scale(1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.servicio-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 182, 193, 0.2) 30%,
+      transparent 70%);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.servicio-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 20%,
+      rgba(255, 182, 193, 0.3) 50%,
+      rgba(255, 255, 255, 0.6) 80%,
+      transparent 100%);
+  transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.servicio-card:hover::before {
+  opacity: 1;
+}
+
+.servicio-card:hover::after {
+  left: 100%;
+}
+
+.servicio-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow:
+    0 35px 80px rgba(255, 105, 180, 0.25),
+    0 20px 50px rgba(255, 182, 193, 0.18),
+    0 12px 30px rgba(255, 105, 180, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(255, 105, 180, 0.15);
+  border: 2px solid rgba(255, 105, 180, 0.5);
+}
+
+/* Iconos con animaciones profesionales */
+.servicio-icon {
+  width: 3.5rem; /* Reducido de 4rem */
+  height: 3.5rem; /* Reducido de 4rem */
+  margin: 0 auto 1.2rem; /* Reducido de 1.5rem */
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.servicio-icon.masajes {
+  color: #e91e63;
+}
+
+.servicio-icon.juguetes {
+  color: #e91e63;
+}
+
+.servicio-card:hover .servicio-icon {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+}
+
+.servicio-card:hover .servicio-icon.masajes {
+  color:  #d81b60;
+}
+
+.servicio-card:hover .servicio-icon.juguetes {
+  color: #d81b60;
+}
+
+/* Títulos con gradientes elegantes */
+.servicio-title {
+  font-size: 1.6rem; /* Reducido de 1.75rem */
+  font-weight: 700;
+  margin-bottom: 0.8rem; /* Reducido de 1rem */
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.servicio-title.masajes {
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 50%, #ec407a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.2);
+}
+
+.servicio-title.juguetes {
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 50%, #ec407a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.2);
+}
+
+.servicio-card:hover .servicio-title {
+  transform: translateY(-2px);
+}
+
+/* Descripción elegante */
+.servicio-description {
+  color: #6b4c7a;
+  font-size: 1rem; /* Reducido de 1.1rem */
+  line-height: 1.6; /* Reducido de 1.7 */
+  margin-bottom: 1.8rem; /* Reducido de 2rem */
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  transition: all 0.4s ease;
+}
+
+.servicio-card:hover .servicio-description {
+  color: #5a3d6b;
+  transform: translateY(-1px);
+}
+
+/* Botones premium con efectos avanzados */
+.servicio-button {
+  display: inline-block;
+  padding: 0.9rem 2.2rem; /* Reducido de 1rem 2.5rem */
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem; /* Reducido de 1.1rem */
+  text-decoration: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+}
+
+.servicio-button.masajes {
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 50%, #ec407a 100%);
+  box-shadow: 0 8px 25px rgba(22, 160, 133, 0.3);
+}
+
+.servicio-button.juguetes {
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 50%, #ec407a 100%);
+  box-shadow: 0 8px 25px rgba(22, 160, 133, 0.3);
+}
+
+.servicio-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.servicio-button:hover::before {
+  left: 100%;
+}
+
+.servicio-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  filter: brightness(1.1);
+}
+
+.servicio-button.masajes:hover {
+  box-shadow: 0 15px 40px rgba(233, 30, 99, 0.4);
+  background: linear-gradient(135deg, #d81b60 0%, #e91e63 50%, #f06292 100%);
+}
+
+.servicio-button.juguetes:hover {
+  box-shadow: 0 15px 40px rgba(233, 30, 99, 0.4);
+  background: linear-gradient(135deg, #d81b60 0%, #e91e63 50%, #f06292 100%);
+}
+
+.servicio-button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
 /* Mobile Responsive */
 @media (max-width: 1024px) {
   .main-content {
@@ -300,6 +646,37 @@ body {
 
   .content-card {
     max-width: 750px;
+  }
+  
+  .seleccion-container {
+    padding: 1.5rem;
+  }
+  
+  .seleccion-grid {
+    gap: 2rem; /* Reducido de 2.5rem */
+    max-width: 700px; /* Reducido de 900px */
+  }
+  
+  .servicio-card {
+    padding: 2rem 1.8rem; /* Reducido de 2.5rem 2rem */
+  }
+  
+  .servicio-icon {
+    width: 3.2rem; /* Reducido de 3.5rem */
+    height: 3.2rem; /* Reducido de 3.5rem */
+  }
+  
+  .servicio-title {
+    font-size: 1.5rem; /* Reducido de 1.6rem */
+  }
+  
+  .servicio-description {
+    font-size: 0.95rem; /* Reducido de 1.05rem */
+  }
+  
+  .servicio-button {
+    padding: 0.8rem 2rem; /* Reducido de 0.9rem 2.2rem */
+    font-size: 0.95rem; /* Reducido de 1.05rem */
   }
 }
 
@@ -336,6 +713,50 @@ body {
   .service-item, .benefit-item, .sexshop-item {
     padding: 1.5rem;
   }
+  
+  .seleccion-container {
+    padding: 1rem;
+    background-attachment: scroll;
+  }
+  
+  .seleccion-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Reducido de 2rem */
+    max-width: 420px; /* Reducido de 500px */
+    padding: 1rem 0;
+  }
+  
+  .servicio-card {
+    padding: 1.8rem 1.3rem; /* Reducido de 2rem 1.5rem */
+    border-radius: 24px;
+  }
+  
+  .servicio-icon {
+    width: 3rem; /* Reducido de 3.2rem */
+    height: 3rem; /* Reducido de 3.2rem */
+    margin-bottom: 1rem; /* Reducido de 1.2rem */
+  }
+  
+  .servicio-title {
+    font-size: 1.4rem; /* Reducido de 1.5rem */
+    margin-bottom: 0.7rem; /* Reducido de 0.8rem */
+  }
+  
+  .servicio-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.6rem;
+    line-height: 1.5;
+  }
+  
+  .servicio-button {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.95rem;
+    border-radius: 14px;
+  }
+  
+  .servicio-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
 }
 
 @media (max-width: 480px) {
@@ -371,13 +792,85 @@ body {
     padding: 1.2rem;
     font-size: 1rem;
   }
+  
+  .seleccion-container {
+    padding: 0.5rem;
+    min-height: 100vh;
+  }
+  
+  .seleccion-grid {
+    gap: 1.2rem; /* Reducido de 1.5rem */
+    max-width: 320px; /* Reducido de 360px */
+    padding: 0.5rem 0;
+  }
+  
+  .servicio-card {
+    padding: 1.5rem 1rem; /* Reducido de 1.8rem 1.2rem */
+    border-radius: 20px;
+  }
+  
+  .servicio-icon {
+    width: 2.6rem; /* Reducido de 2.8rem */
+    height: 2.6rem; /* Reducido de 2.8rem */
+    margin-bottom: 0.8rem; /* Reducido de 1rem */
+  }
+  
+  .servicio-title {
+    font-size: 1.2rem; /* Reducido de 1.3rem */
+    margin-bottom: 0.6rem; /* Reducido de 0.7rem */
+  }
+  
+  .servicio-description {
+    font-size: 0.9rem; /* Reducido de 0.95rem */
+    margin-bottom: 1.3rem; /* Reducido de 1.5rem */
+  }
+  
+  .servicio-button {
+    padding: 0.6rem 1.6rem; /* Reducido de 0.7rem 1.8rem */
+    font-size: 0.9rem; /* Reducido de 0.95rem */
+    border-radius: 12px;
+  }
+  
+  .servicio-card:hover {
+    transform: translateY(-6px) scale(1.015);
+  }
 }
 
-/* Ultra-wide screens optimization */
+/* Ultra-wide screens optimization - También reducido */
 @media (min-width: 1400px) {
   .content-card {
     max-width: 1100px;
     padding: 4rem 3rem;
+  }
+  
+  .seleccion-grid {
+    max-width: 1000px; /* Reducido de 1400px */
+    gap: 2.5rem; /* Reducido de 4rem */
+  }
+  
+  .servicio-card {
+    padding: 3rem 2.5rem; /* Reducido de 3.5rem 3rem */
+  }
+  
+  .servicio-icon {
+    width: 3.8rem; /* Reducido de 4rem */
+    height: 3.8rem; /* Reducido de 4rem */
+    margin-bottom: 1.3rem; /* Reducido de 1.5rem */
+  }
+  
+  .servicio-title {
+    font-size: 1.8rem; /* Reducido de 2rem */
+    margin-bottom: 1rem; /* Reducido de 1.2rem */
+  }
+  
+  .servicio-description {
+    font-size: 1.1rem; /* Reducido de 1.2rem */
+    margin-bottom: 2.2rem; /* Reducido de 2.5rem */
+  }
+  
+  .servicio-button {
+    padding: 1rem 2.5rem; /* Reducido de 1.2rem 3rem */
+    font-size: 1.1rem; /* Reducido de 1.2rem */
   }
 }
 
