@@ -169,7 +169,7 @@ const MassageTherapyApp = ({ serviceType = 'masajes' }) => {
 
   return (
     <div className={`app-container ${isLoaded ? 'loaded' : ''}`}>
-      <div className="background-overlay"></div>
+      {/* ELIMINAMOS EL background-overlay que oscurecía el fondo permanentemente */}
 
       {/* Aquí usamos el componente BackButtom */}
       <BackButtom serviceType={serviceType} />
@@ -214,7 +214,7 @@ function App() {
         <Route path="/sexshop" element={<MassageTherapyApp serviceType="sexshop" />} />
         
         {/* Ruta alternativa para juguetes (redirige a sexshop) */}
-     <Route path="/juguetes" element={<MassageTherapyApp serviceType="sexshop" />} />
+        <Route path="/juguetes" element={<MassageTherapyApp serviceType="sexshop" />} />
       </Routes>
     </Router>
   );

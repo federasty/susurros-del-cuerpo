@@ -41,7 +41,7 @@ export default function SeleccionServicios() {
           <p className="servicio-description">
             Explora nuestra selección premium de productos íntimos para el placer y la diversión. Todos elegidos con discreción y calidad superior.
           </p>
-          <Link to="/juguetes" className="servicio-button juguetes">
+          <Link to="/sexshop" className="servicio-button juguetes">
             Descubrir Productos
           </Link>
         </motion.div>
