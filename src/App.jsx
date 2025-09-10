@@ -5,6 +5,8 @@ import SideMenu from "./component/SideMenu.jsx";
 import Hamburguer from "./component/Hamburguer.jsx";
 import FloatingWhatsApp from "./component/FloatingWhatsApp.jsx";
 import SeleccionServicios from "./SeleccionServicios.jsx";
+import BackButtom from "./component/BackButtom.jsx";
+
 
 // Definición de secciones
 const sections = {
@@ -123,6 +125,7 @@ const sections = {
   }
 };
 
+
 // Componente para las páginas de servicios (masajes y sexshop)
 const MassageTherapyApp = ({ serviceType = 'masajes' }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -167,6 +170,9 @@ const MassageTherapyApp = ({ serviceType = 'masajes' }) => {
   return (
     <div className={`app-container ${isLoaded ? 'loaded' : ''}`}>
       <div className="background-overlay"></div>
+
+      {/* Aquí usamos el componente BackButtom */}
+      <BackButtom serviceType={serviceType} />
 
       <Hamburguer
         isActive={isMenuOpen}
