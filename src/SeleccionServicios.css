@@ -1,0 +1,892 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #6d1e59;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at top, rgba(255, 182, 193, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(255, 192, 203, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(255, 182, 224, 0.4) 0%, transparent 50%),
+    linear-gradient(135deg,
+      rgba(255, 182, 193, 0.6) 0%,
+      rgba(255, 192, 203, 0.5) 30%,
+      rgba(255, 182, 224, 0.6) 70%,
+      rgba(255, 105, 180, 0.7) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Fondo rosa premium específico para SeleccionServicios */
+.seleccion-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow-x: hidden;
+  
+  /* Gradiente de fondo profesional con tonos rosa - EL MISMO QUE VENÍAMOS TRABAJANDO */
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 182, 193, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at top right, rgba(255, 192, 203, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(255, 182, 224, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(255, 105, 180, 0.3) 0%, transparent 60%),
+    linear-gradient(135deg,
+      rgba(255, 240, 245, 0.95) 0%,
+      rgba(255, 228, 225, 0.9) 25%,
+      rgba(255, 182, 193, 0.85) 50%,
+      rgba(255, 192, 203, 0.9) 75%,
+      rgba(255, 182, 224, 0.95) 100%);
+  
+  background-size: 120% 120%, 110% 110%, 130% 130%, 115% 115%, 100% 100%;
+  background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, center;
+  background-attachment: fixed;
+  animation: backgroundFlow 20s ease-in-out infinite;
+}
+
+/* Animación del fondo rosa */
+@keyframes backgroundFlow {
+  0%, 100% {
+    background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, center;
+  }
+  25% {
+    background-position: 10% 5%, 90% 10%, 5% 95%, 95% 90%, center;
+  }
+  50% {
+    background-position: 5% 10%, 95% 5%, 10% 90%, 90% 95%, center;
+  }
+  75% {
+    background-position: 15% 0%, 85% 15%, 0% 85%, 100% 85%, center;
+  }
+}
+
+.app-container.loaded {
+  opacity: 1;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 192, 203, 0.08) 0%, transparent 50%);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.main-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: 100vh;
+  padding: 2rem 1rem;
+  text-align: center;
+  width: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.content-card {
+  background:
+    linear-gradient(145deg,
+      rgba(255, 240, 245, 0.95) 0%,
+      rgba(255, 228, 225, 0.92) 50%,
+      rgba(255, 182, 193, 0.90) 100%);
+  backdrop-filter: blur(30px);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  box-shadow:
+    0 20px 60px rgba(255, 105, 180, 0.15),
+    0 8px 25px rgba(255, 182, 193, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(255, 105, 180, 0.1);
+  border: 2px solid rgba(255, 182, 193, 0.3);
+  width: 100%;
+  max-width: 900px;
+  transform: translateY(0) scale(1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.content-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 182, 193, 0.15) 30%,
+      transparent 70%);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.content-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 30%,
+      rgba(255, 182, 193, 0.2) 50%,
+      rgba(255, 255, 255, 0.4) 70%,
+      transparent 100%);
+  transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.content-card:hover::before {
+  opacity: 1;
+}
+
+.content-card:hover::after {
+  left: 100%;
+}
+
+.content-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 30px 80px rgba(255, 105, 180, 0.2),
+    0 15px 40px rgba(255, 182, 193, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 105, 180, 0.2);
+  border: 2px solid rgba(255, 105, 180, 0.4);
+}
+
+.content-card h2 {
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  background: linear-gradient(135deg, #d63384 0%, #e91e63 50%, #ad1457 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.content-card p {
+  color: #8e2157;
+  font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  word-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.content-card h4 {
+  background: linear-gradient(135deg, #d63384 0%, #e91e63 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.3);
+}
+
+.services-list, .benefits-list, .sexshop-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.service-item, .benefit-item, .sexshop-item {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 182, 193, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+  color: #8e2157;
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-item::before, .benefit-item::before, .sexshop-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 182, 193, 0.2) 50%,
+      transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.service-item:hover::before, .benefit-item:hover::before, .sexshop-item:hover::before {
+  left: 100%;
+}
+
+.service-item:hover, .benefit-item:hover, .sexshop-item:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(255, 105, 180, 0.25);
+  border-color: rgba(255, 105, 180, 0.5);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Fondo rosa premium específico para SeleccionServicios */
+.seleccion-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow-x: hidden;
+  
+  /* Gradiente de fondo profesional con tonos rosa - EL MISMO QUE VENÍAMOS TRABAJANDO */
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 182, 193, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at top right, rgba(255, 192, 203, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(255, 182, 224, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(255, 105, 180, 0.3) 0%, transparent 60%),
+    linear-gradient(135deg,
+      rgba(255, 240, 245, 0.95) 0%,
+      rgba(255, 228, 225, 0.9) 25%,
+      rgba(255, 182, 193, 0.85) 50%,
+      rgba(255, 192, 203, 0.9) 75%,
+      rgba(255, 182, 224, 0.95) 100%);
+  
+  background-size: 120% 120%, 110% 110%, 130% 130%, 115% 115%, 100% 100%;
+  background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, center;
+  background-attachment: fixed;
+  animation: backgroundFlow 20s ease-in-out infinite;
+}
+
+.seleccion-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 192, 203, 0.08) 0%, transparent 50%);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.seleccion-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.servicio-card {
+  background:
+    linear-gradient(145deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 240, 245, 0.92) 30%,
+      rgba(255, 228, 225, 0.90) 70%,
+      rgba(255, 182, 193, 0.88) 100%);
+  
+  backdrop-filter: blur(25px);
+  border-radius: 28px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  /* Sombras profesionales en capas */
+  box-shadow:
+    0 25px 60px rgba(255, 105, 180, 0.15),
+    0 15px 35px rgba(255, 182, 193, 0.12),
+    0 8px 20px rgba(255, 105, 180, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 105, 180, 0.1);
+  
+  border: 2px solid rgba(255, 182, 193, 0.3);
+  transform: translateY(0) scale(1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.servicio-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 182, 193, 0.2) 30%,
+      transparent 70%);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.servicio-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 20%,
+      rgba(255, 182, 193, 0.3) 50%,
+      rgba(255, 255, 255, 0.6) 80%,
+      transparent 100%);
+  transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.servicio-card:hover::before {
+  opacity: 1;
+}
+
+.servicio-card:hover::after {
+  left: 100%;
+}
+
+.servicio-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow:
+    0 35px 80px rgba(255, 105, 180, 0.25),
+    0 20px 50px rgba(255, 182, 193, 0.18),
+    0 12px 30px rgba(255, 105, 180, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(255, 105, 180, 0.15);
+  border: 2px solid rgba(255, 105, 180, 0.5);
+}
+
+/* Iconos con animaciones profesionales */
+.servicio-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.servicio-icon.masajes {
+  color: #e91e63;
+}
+
+.servicio-icon.juguetes {
+  color: #e91e63;
+}
+
+.servicio-card:hover .servicio-icon {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+}
+
+.servicio-card:hover .servicio-icon.masajes {
+  color:  #d81b60;
+}
+
+.servicio-card:hover .servicio-icon.juguetes {
+  color: #d81b60;
+}
+
+/* Títulos con gradientes elegantes */
+.servicio-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.servicio-title.masajes {
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 50%, #ec407a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.2);
+}
+
+.servicio-title.juguetes {
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 50%, #ec407a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.2);
+}
+
+.servicio-card:hover .servicio-title {
+  transform: translateY(-2px);
+}
+
+/* Descripción elegante */
+.servicio-description {
+  color: #6b4c7a;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  transition: all 0.4s ease;
+}
+
+.servicio-card:hover .servicio-description {
+  color: #5a3d6b;
+  transform: translateY(-1px);
+}
+
+/* Botones premium con efectos avanzados */
+.servicio-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+}
+
+.servicio-button.masajes {
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 50%, #ec407a 100%);
+  box-shadow: 0 8px 25px rgba(22, 160, 133, 0.3);
+}
+
+.servicio-button.juguetes {
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 50%, #ec407a 100%);
+  box-shadow: 0 8px 25px rgba(22, 160, 133, 0.3);
+}
+
+.servicio-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.servicio-button:hover::before {
+  left: 100%;
+}
+
+.servicio-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  filter: brightness(1.1);
+}
+
+.servicio-button.masajes:hover {
+  box-shadow: 0 15px 40px rgba(233, 30, 99, 0.4);
+  background: linear-gradient(135deg, #d81b60 0%, #e91e63 50%, #f06292 100%);
+}
+
+.servicio-button.juguetes:hover {
+  box-shadow: 0 15px 40px rgba(233, 30, 99, 0.4);
+  background: linear-gradient(135deg, #d81b60 0%, #e91e63 50%, #f06292 100%);
+}
+
+.servicio-button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .main-content {
+    justify-content: flex-start;
+    padding-top: 6rem;
+  }
+
+  .content-card {
+    max-width: 750px;
+  }
+  
+  .seleccion-container {
+    padding: 1.5rem;
+  }
+  
+  .seleccion-grid {
+    gap: 2.5rem;
+    max-width: 900px;
+  }
+  
+  .servicio-card {
+    padding: 2.5rem 2rem;
+  }
+  
+  .servicio-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .servicio-title {
+    font-size: 1.6rem;
+  }
+  
+  .servicio-description {
+    font-size: 1.05rem;
+  }
+  
+  .servicio-button {
+    padding: 0.9rem 2.2rem;
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .app-container {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+  }
+
+  .main-content {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+    padding: 1rem 0.5rem 5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content-card {
+    margin: 0 auto 2rem auto;
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    width: 92%;
+    align-self: center;
+  }
+
+  .services-list, .benefits-list, .sexshop-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-item, .benefit-item, .sexshop-item {
+    padding: 1.5rem;
+  }
+  
+  .seleccion-container {
+    padding: 1rem;
+    background-attachment: scroll;
+  }
+  
+  .seleccion-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 500px;
+    padding: 1rem 0;
+  }
+  
+  .servicio-card {
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+  }
+  
+  .servicio-icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .servicio-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .servicio-description {
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+  }
+  
+  .servicio-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 14px;
+  }
+  
+  .servicio-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem 0.25rem 4rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content-card {
+    padding: 1.5rem 1.2rem;
+    margin: 0 auto 1.5rem auto;
+    max-width: 320px;
+    width: 88%;
+    align-self: center;
+  }
+
+  .content-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-card p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .services-list, .benefits-list, .sexshop-list {
+    gap: 1rem;
+  }
+
+  .service-item, .benefit-item, .sexshop-item {
+    padding: 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .seleccion-container {
+    padding: 0.5rem;
+    min-height: 100vh;
+  }
+  
+  .seleccion-grid {
+    gap: 1.5rem;
+    max-width: 360px;
+    padding: 0.5rem 0;
+  }
+  
+  .servicio-card {
+    padding: 1.8rem 1.2rem;
+    border-radius: 20px;
+  }
+  
+  .servicio-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .servicio-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .servicio-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .servicio-button {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+  
+  .servicio-card:hover {
+    transform: translateY(-6px) scale(1.015);
+  }
+}
+
+/* Ultra-wide screens optimization */
+@media (min-width: 1400px) {
+  .content-card {
+    max-width: 1100px;
+    padding: 4rem 3rem;
+  }
+  
+  .seleccion-grid {
+    max-width: 1400px;
+    gap: 4rem;
+  }
+  
+  .servicio-card {
+    padding: 3.5rem 3rem;
+  }
+  
+  .servicio-icon {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .servicio-title {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .servicio-description {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .servicio-button {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .content-card {
+    animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

@@ -1,8 +1,11 @@
 import "./SideMenu.css";
 
 const SideMenu = ({ isOpen, onClose, onSectionChange, activeSection, menuItems }) => {
-  const regularItems = menuItems.filter(item => !item.sexshop);
-  const sexshopItems = menuItems.filter(item => item.sexshop);
+  // Determinar el tipo de servicio basado en los elementos del menú
+  const serviceType = menuItems.length > 0 ? menuItems[0].type : 'masajes';
+  
+  // Título dinámico según el tipo de servicio
+  const sectionTitle = serviceType === 'masajes' ? 'Servicios de Masajes' : 'Sex Shop';
 
   return (
     <>
@@ -19,32 +22,14 @@ const SideMenu = ({ isOpen, onClose, onSectionChange, activeSection, menuItems }
         </div>
 
         <div className="menu-content">
-          {/* Secciones principales */}
+          {/* Sección única - solo muestra los elementos filtrados */}
           <div className="menu-section">
-            <h4>Servicios de Masajes</h4>
+            <h4>{sectionTitle}</h4>
             <ul>
-              {regularItems.map(item => (
+              {menuItems.map(item => (
                 <li key={item.id}>
                   <button
-                    className={`menu-item ${activeSection === item.id ? 'active' : ''}`}
-                    onClick={() => onSectionChange(item.id)}
-                  >
-                    <span className="menu-icon">{item.icon}</span>
-                    <span className="menu-label">{item.label}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Secciones Sex Shop */}
-          <div className="menu-section sexshop-section">
-            <h4>Sex Shop</h4>
-            <ul>
-              {sexshopItems.map(item => (
-                <li key={item.id}>
-                  <button
-                    className={`menu-item sexshop-item ${activeSection === item.id ? 'active' : ''}`}
+                    className={`menu-item ${serviceType === 'sexshop' ? 'sexshop-item' : ''} ${activeSection === item.id ? 'active' : ''}`}
                     onClick={() => onSectionChange(item.id)}
                   >
                     <span className="menu-icon">{item.icon}</span>

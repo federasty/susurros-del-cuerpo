@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import SideMenu from "./component/SideMenu.jsx";
 import Hamburguer from "./component/Hamburguer.jsx";
 import FloatingWhatsApp from "./component/FloatingWhatsApp.jsx";
+import SeleccionServicios from "./SeleccionServicios.jsx";
 
 // Definición de secciones
 const sections = {
@@ -121,30 +123,39 @@ const sections = {
   }
 };
 
-const MassageTherapyApp = () => {
+// Componente para las páginas de servicios (masajes y sexshop)
+const MassageTherapyApp = ({ serviceType = 'masajes' }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState(serviceType === 'masajes' ? 'home' : 'sexshop-main');
 
-  const menuItems = [
-    { id: 'home', label: 'Inicio', icon: '🏠' },
-    { id: 'services', label: 'Servicios', icon: '💆‍♀️' },
-    { id: 'benefits', label: 'Beneficios', icon: '✨' },
-    { id: 'about', label: 'Sobre Nosotros', icon: '👥' },
-    { id: 'contact', label: 'Contacto', icon: '📞' },
-    { id: 'sexshop-main', label: 'Sex Shop', icon: '🛍️', sexshop: true },
-    { id: 'sexshop-toys', label: 'Juguetes Eróticos', icon: '💖', sexshop: true },
-    { id: 'sexshop-lenceria', label: 'Lencería', icon: '👙', sexshop: true },
-    { id: 'sexshop-lubricantes', label: 'Lubricantes', icon: '🛀', sexshop: true },
-    { id: 'sexshop-accesorios', label: 'Accesorios', icon: '🔒', sexshop: true },
-    { id: 'sexshop-higiene', label: 'Higiene Íntima', icon: '🧴', sexshop: true },
-    { id: 'sexshop-promos', label: 'Promociones', icon: '🎁', sexshop: true }
+  // Filtrar elementos del menú según el tipo de servicio
+  const allMenuItems = [
+    { id: 'home', label: 'Inicio', icon: '🏠', type: 'masajes' },
+    { id: 'services', label: 'Servicios', icon: '💆‍♀️', type: 'masajes' },
+    { id: 'benefits', label: 'Beneficios', icon: '✨', type: 'masajes' },
+    { id: 'about', label: 'Sobre Nosotros', icon: '👥', type: 'masajes' },
+    { id: 'contact', label: 'Contacto', icon: '📞', type: 'masajes' },
+    { id: 'sexshop-main', label: 'Sex Shop', icon: '🛍️', type: 'sexshop' },
+    { id: 'sexshop-toys', label: 'Juguetes Eróticos', icon: '💖', type: 'sexshop' },
+    { id: 'sexshop-lenceria', label: 'Lencería', icon: '👙', type: 'sexshop' },
+    { id: 'sexshop-lubricantes', label: 'Lubricantes', icon: '🛀', type: 'sexshop' },
+    { id: 'sexshop-accesorios', label: 'Accesorios', icon: '🔒', type: 'sexshop' },
+    { id: 'sexshop-higiene', label: 'Higiene Íntima', icon: '🧴', type: 'sexshop' },
+    { id: 'sexshop-promos', label: 'Promociones', icon: '🎁', type: 'sexshop' }
   ];
+
+  const menuItems = allMenuItems.filter(item => item.type === serviceType);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    // Cambiar la sección activa cuando cambie el tipo de servicio
+    setActiveSection(serviceType === 'masajes' ? 'home' : 'sexshop-main');
+  }, [serviceType]);
 
   const handleSectionChange = (sectionId) => {
     setActiveSection(sectionId);
@@ -182,4 +193,25 @@ const MassageTherapyApp = () => {
   );
 };
 
-export default MassageTherapyApp;
+// Componente principal App con Router
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Página de selección de servicios */}
+        <Route path="/" element={<SeleccionServicios />} />
+        
+        {/* Sección de Masajes */}
+        <Route path="/masajes" element={<MassageTherapyApp serviceType="masajes" />} />
+        
+        {/* Sección de Sex Shop */}
+        <Route path="/sexshop" element={<MassageTherapyApp serviceType="sexshop" />} />
+        
+        {/* Ruta alternativa para juguetes (redirige a sexshop) */}
+        <Route path="/juguetes" element={<MassageTherapyApp serviceType="sexshop" />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
