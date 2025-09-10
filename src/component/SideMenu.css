@@ -132,24 +132,8 @@
   text-align: left;
 }
 
-.sexshop-section {
-  background: rgba(255, 105, 180, 0.05);
-  border-radius: 0 0 0 20px;
-  margin: 0;
-  padding-bottom: 1rem;
-}
-
-.sexshop-item {
-  background: rgba(255, 105, 180, 0.05);
-}
-
-.sexshop-item:hover {
-  background: rgba(255, 105, 180, 0.2);
-}
-
-.sexshop-item.active {
-  background: rgba(255, 105, 180, 0.25);
-}
+/* Eliminamos los estilos específicos de sexshop para que todo se vea igual */
+/* .sexshop-section, .sexshop-item estilos eliminados para uniformidad */
 
 .menu-overlay {
   position: fixed;

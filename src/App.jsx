@@ -214,7 +214,7 @@ function App() {
         <Route path="/sexshop" element={<MassageTherapyApp serviceType="sexshop" />} />
         
         {/* Ruta alternativa para juguetes (redirige a sexshop) */}
-        <Route path="/juguetes" element={<MassageTherapyApp serviceType="sexshop" />} />
+     <Route path="/juguetes" element={<MassageTherapyApp serviceType="sexshop" />} />
       </Routes>
     </Router>
   );

@@ -29,7 +29,7 @@ const SideMenu = ({ isOpen, onClose, onSectionChange, activeSection, menuItems }
               {menuItems.map(item => (
                 <li key={item.id}>
                   <button
-                    className={`menu-item ${serviceType === 'sexshop' ? 'sexshop-item' : ''} ${activeSection === item.id ? 'active' : ''}`}
+                    className={`menu-item ${activeSection === item.id ? 'active' : ''}`}
                     onClick={() => onSectionChange(item.id)}
                   >
                     <span className="menu-icon">{item.icon}</span>
